@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt
+import random
+
+vetor = []
+
+for i in range(100):
+    randnum = random.randint(0,50)
+    vetor.append(randnum)
+
+plt.title("boxplot")
+plt.boxplot(vetor)
+plt.show()
