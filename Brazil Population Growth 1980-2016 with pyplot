@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+
+#Crescimento da população brasileira 1980-2016 -DataSUS
+
+data = open("original.csv").readlines()
+
+x = []
+y = []
+
+#um for que percorre as linhas dos dados, ignorando a linha 1 (legenda)
+for i in range(len(data)):
+    if i !=0:
+        line = data[i].split(";")#divide em dois a linha no local que tem ;
+        x.append(int(line[0]))
+        y.append(int(line[1]))
+
+#legendas
+plt.title("Crescimento populacional 1980-2016")
+plt.xlabel("Ano")
+plt.ylabel("População")
+
+plt.scatter(x, y, color = 'b')
+plt.plot(x, y, color='r')
+plt.bar(x, y, color ='k')
+#plt.show()
+plt.savefig("populacao_brasileira.png", dpi= 300)
